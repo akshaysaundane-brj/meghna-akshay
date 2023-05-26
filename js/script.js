@@ -23,6 +23,21 @@
 $(document).on('click', function(){
     document.getElementById("my_audio").play();
 });
+$(document).ready(function(){   
+    if(isMobileBrowser()){
+        $("#gmap").attr("width",300);
+        $("#gmap").attr("height",250);
+    }
+});
+function isMobileBrowser() {
+    let check = false;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        check = true;
+    } else if (/Macintosh/i.test(navigator.userAgent) && window.screen.width <= 820) {
+        check = true;
+    }
+    return check;
+}
 
 // Set the date we're counting down to
 var countDownDate = new Date("Thu Jun 01 2023 10:00:00 GMT+0530").getTime();
